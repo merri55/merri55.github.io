@@ -48,7 +48,7 @@ if('ondeviceproximity' in window) {
     // Fired when object is in the detection zone
     window.addEventListener('deviceproximity', function(event) {
         // Object distance in centimeters 
-        console.log(event.value + " centimeters");
+		document.getElementById("distance").innerHTML = eventData.value;
     });
 } else {
     console.log("deviceproximity not supported");
@@ -112,6 +112,15 @@ function success(position) {
 </script>
 
 <body>
+	<!-- proximity -->
+  <div class="container">
+    <div class="cardHeader"><h1>Orientation data</h1></div>
+    <div id="compInner" class="pad-text">
+      <span>Distance: </span>
+      <span id="distance">distance</span>
+    </div>
+  </div>
+  
   <!-- orientation -->
   <div class="container">
     <div class="cardHeader"><h1>Orientation data</h1></div>

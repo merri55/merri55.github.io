@@ -43,6 +43,31 @@ span{
 </style>
 
 <script>
+
+if('ondeviceproximity' in window) {
+    // Fired when object is in the detection zone
+    window.addEventListener('deviceproximity', function(event) {
+        // Object distance in centimeters 
+        console.log(event.value + " centimeters");
+    });
+} else {
+    console.log("deviceproximity not supported");
+}
+
+if('ondeviceproximity' in window){
+    // Fired when object is in the detection zone
+    window.addEventListener('userproximity', function(event) {
+        if(event.near == true) {
+            console.log("Object is near");
+        } else {
+            console.log("Object is far");
+        }
+    });
+} else {
+    console.log("userproximity not supported");
+}
+
+
 // Compass and orientation data
 if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', function(eventData) {

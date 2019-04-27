@@ -1,179 +1,100 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-</head>
-<style>
-body{
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Rubik', sans-serif;
-  font-size: 11px;
-  color: #202020;
-  letter-spacing: 1px;
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="author" content="Aurelio De Rosa">
+      <title>Proximity API Demo by Aurelio De Rosa</title>
+      <style>
+         *
+         {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+         }
 
-}
+         body
+         {
+            max-width: 500px;
+            margin: 2em auto;
+            padding: 0 0.5em;
+            font-size: 20px;
+         }
 
-h1{
-  font-size: 18pt;
-  margin-left: 10px;
-}
+         h1
+         {
+            text-align: center;
+         }
 
-span{
-  font-size: 16pt;
-}
+         .api-support
+         {
+            display: block;
+         }
 
-.container{
-  margin: 20px 10px 0px 10px;
-  padding-bottom: 10px;
-  background: #FFFFFF;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-  border-radius: 4px;
-}
+         .hidden
+         {
+            display: none;
+         }
 
-.cardHeader{
-  background: #D8D8D8;
-  text-transform: uppercase;
-  border-radius: 4px 4px;
-}
+         .value
+         {
+            font-weight: bold;
+         }
 
-.pad-text{
-  margin: 10px;
-}
+         .author
+         {
+            display: block;
+            margin-top: 1em;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Proximity API</h1>
 
-</style>
+      <span id="dp-unsupported" class="api-support hidden">deviceproximity event not supported</span>
+      <span id="up-unsupported" class="api-support hidden">userproximity event not supported</span>
 
-<script>
+      <ul>
+         <li>
+            An object is at a distance of <span id="dp-value" class="value">null</span> centimeters
+            (within a detectable range of <span id="dp-min" class="value">null</span> -
+            <span id="dp-max" class="value">null</span> centimeters).
+         </li>
+         <li>
+            Object close to the device? <span id="up-value" class="value">unavailable</span>
+         </li>
+      </ul>
 
-if('ondeviceproximity' in window) {
-    // Fired when object is in the detection zone
-    window.addEventListener('deviceproximity', function(event) {
-        // Object distance in centimeters 
-		document.getElementById("distance").innerHTML = eventData.value;
-    });
-} else {
-    console.log("deviceproximity not supported");
-}
+      <small class="author">
+         Demo created by <a href="http://www.audero.it">Aurelio De Rosa</a>
+         (<a href="https://twitter.com/AurelioDeRosa">@AurelioDeRosa</a>).<br />
+         This demo is part of the <a href="https://github.com/AurelioDeRosa/HTML5-API-demos">HTML5 API demos repository</a>.
+      </small>
 
-if('ondeviceproximity' in window){
-    // Fired when object is in the detection zone
-    window.addEventListener('userproximity', function(event) {
-        if(event.near == true) {
-            console.log("Object is near");
-        } else {
-            console.log("Object is far");
-        }
-    });
-} else {
-    console.log("userproximity not supported");
-}
+      <script>
+         if (!('ondeviceproximity' in window)) {
+            document.getElementById('dp-unsupported').classList.remove('hidden');
+         } else {
+            var proximityValue = document.getElementById('dp-value');
+            var proximityMax = document.getElementById('dp-max');
+            var proximityMin = document.getElementById('dp-min');
 
-window.addEventListener('userproximity', function(event) {
-  if (event.near) {
-    // let's power off the screen
-    navigator.mozPower.screenEnabled = false;
-  } else {
-    // Otherwise, let's power on the screen
-    navigator.mozPower.screenEnabled = true;
-  }
-});
+            window.addEventListener('deviceproximity', function(event) {
+               proximityValue.innerHTML = event.value;
+               proximityMax.innerHTML = event.max;
+               proximityMin.innerHTML = event.min;
+            });
+         }
 
+         if (!('onuserproximity' in window)) {
+            document.getElementById('up-unsupported').classList.remove('hidden');
+         } else {
+            var inProximity = document.getElementById('up-value');
 
-// Compass and orientation data
-if (window.DeviceOrientationEvent) {
-    window.addEventListener('deviceorientation', function(eventData) {
-        // gamma is the left-to-right tilt in degrees
-        document.getElementById("gamma").innerHTML = eventData.gamma;
-        // beta is the front-to-back tilt in degrees
-        document.getElementById("beta").innerHTML = eventData.beta;
-        // alpha is the compass direction the device is facing in degrees
-        document.getElementById("comp").innerHTML = eventData.alpha;
-    }, console.log("No orientation data found"));
-}
-
-// Accelerometer data
-if (window.DeviceMotionEvent == undefined) {
-        //No accelerometer is present. Use buttons.
-        console.log("no accelerometer");
-    }
-    else {
-        console.log("accelerometer found");
-        window.addEventListener("devicemotion", accelerometerUpdate, true);
-    }
-
-function accelerometerUpdate(e){
-  var aX = event.accelerationIncludingGravity.x*1;
-  var aY = event.accelerationIncludingGravity.y*1;
-  var aZ = event.accelerationIncludingGravity.z*1;
-  document.getElementById("xdiv").innerHTML = aX;
-  document.getElementById("ydiv").innerHTML = aX;
-  document.getElementById("zdiv").innerHTML = aX;
-  // console.log(aX + ", " + aY + ", " + aZ );
-}
-
-// geolocation data
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success);
-}
-
-function success(position) {
-    document.getElementById('lat').innerHTML = position.coords.latitude;
-    document.getElementById('long').innerHTML = position.coords.longitude;
-}
-</script>
-
-<body>
-	<!-- proximity -->
-  <div class="container">
-    <div class="cardHeader"><h1>Orientation data</h1></div>
-    <div id="compInner" class="pad-text">
-      <span>Distance: </span>
-      <span id="distance">distance</span>
-    </div>
-  </div>
-  
-  <!-- orientation -->
-  <div class="container">
-    <div class="cardHeader"><h1>Orientation data</h1></div>
-    <div id="compInner" class="pad-text">
-      <span>Front-to-back: </span>
-      <span id="gamma">gamma</span>
-    </div>
-    <div class="pad-text">
-      <span>Left-to-right: </span>
-      <span id="beta">beta</span>
-      </div>
-    <div class="pad-text">
-      <span>Compass: </span>
-      <span id="comp"> comp</span>
-    </div>
-  </div>
-  <!-- Accelerometer -->
-  <div class="container">
-    <div class="cardHeader"><h1>Accelerometer data</h1></div>
-    <div class="pad-text">
-      <span>X data: </span>
-      <span id="xdiv">x val</span>
-    </div>
-    <div class="pad-text">
-      <span>Y data: </span>
-      <span id="ydiv">y val</span>
-      </div>
-    <div class="pad-text">
-      <span>Z data: </span>
-      <span id="zdiv"> z val</span>
-    </div>
-  </div>
-  <!-- location -->
-  <div class="container">
-    <div class="cardHeader"><h1>Location data</h1></div>
-    <div class="pad-text">
-      <span>Latitude:</span>
-      <span id="lat">lat val</span>
-    </div>
-    <div class="pad-text">
-      <span>Latitude:</span>
-      <span id="long">lat val</span>
-    </div>
-</div>
-</body>
+            window.addEventListener('userproximity', function(event) {
+               inProximity.innerHTML = event.near;
+            });
+         }
+      </script>
+   </body>
 </html>

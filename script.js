@@ -25,9 +25,14 @@ colors.forEach(function(v, i, a){
 });
 hints.innerHTML = 'Tap/click then say a color to change the background color of the app. Try '+ colorHTML + '.';
 
-document.body.onload = function() {
+document.body.onclick = function() {
   recognition.start();
   console.log('Ready to receive a color command.');
+}
+
+recognition.onsoundstart = function() { 
+  recognition.start();
+  console.log('Speech has been detected'); 
 }
 
 recognition.onresult = function(event) {

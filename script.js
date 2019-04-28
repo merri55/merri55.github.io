@@ -43,14 +43,13 @@ recognition.onresult = function(event) {
   var last = event.results.length - 1;
   var color = event.results[last][0].transcript;
 
-  diagnostic.textContent = 'Result received: ' + color + ' with confidance: ' + event.results[0][0].confidence'.';
+  diagnostic.textContent = 'Result received: ' + color + '.';
   bg.style.backgroundColor = color;
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
 recognition.onspeechend = function() {
   recognition.stop();
-  // recognition.start();
 }
 
 recognition.onnomatch = function(event) {

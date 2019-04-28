@@ -50,7 +50,7 @@ recognition.onresult = function(event) {
 
 recognition.onspeechend = function() {
   recognition.stop();
-  recognition.start();
+  // recognition.start();
 }
 
 recognition.onnomatch = function(event) {

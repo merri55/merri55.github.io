@@ -25,7 +25,7 @@ colors.forEach(function(v, i, a){
 });
 hints.innerHTML = 'Tap/click then say a color to change the background color of the app. Try '+ colorHTML + '.';
 
-document.body.onclick = function() {
+document.body.onload = function() {
   recognition.start();
   console.log('Ready to receive a color command.');
 }
@@ -43,13 +43,14 @@ recognition.onresult = function(event) {
   var last = event.results.length - 1;
   var color = event.results[last][0].transcript;
 
-  diagnostic.textContent = 'Result received: ' + color + '.';
+  diagnostic.textContent = 'Result received: ' + color + ' with confidance: ' + event.results[0][0].confidence'.';
   bg.style.backgroundColor = color;
   console.log('Confidence: ' + event.results[0][0].confidence);
 }
 
 recognition.onspeechend = function() {
   recognition.stop();
+  recognition.start();
 }
 
 recognition.onnomatch = function(event) {

@@ -1,0 +1,214 @@
+<html>
+<head>
+
+
+<link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+
+<style>
+.link { text-decoration:none;
+outline:none;
+font-size:25; 
+font-family:"Open Sans"; 
+letter-spacing:2px;
+color:black}
+.link:hover{
+background:lightgrey}
+
+
+
+#header1{
+height:75px;
+position:center;
+align:center;
+width:60%;
+margin-top:5px;
+background-color:FFE78D;
+font-family:'Open Sans';
+font-size:25px;
+text-align:center;
+line-height: 76px;
+letter-spacing:5px;
+}
+
+
+
+.cook
+{
+z-index: 1000;
+margin:30px;
+padding:4px;
+text-decoration:none;
+outline:none;
+font-size: 55;
+    position: relative;
+    margin: 0 5px;
+	color:black;
+	text-shadow:1px 1px lightgrey;
+	font-family:"Alex Brush"; 
+}
+
+
+.everything
+{
+z-index: 1000;
+margin:30px;
+padding:4px;
+text-decoration:none;
+outline:none;
+font-size: 50;
+    position: relative;
+    margin: 0 5px;
+	color:black;
+	text-shadow:1px 1px lightgrey;
+	font-family:"Alex Brush"; 
+}
+
+
+.headline
+{
+margin:30px;
+padding:4px;
+text-decoration:none;
+outline:none;
+font-size: 45;
+    position: relative;
+    margin: 0 5px;
+    color:black;
+    text-shadow:1px 1px lightgrey;
+    font-family:"Open sans"; 
+    letter-spacing:5px;
+}
+
+.menu_x.visible-xs-inline {
+    float: none;
+    font-size: 25px;
+    position: relative;
+    top: -2px;
+    margin: 0 5px;
+    color:white;
+    }
+    
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width:100%;
+	z-index: 900;
+
+
+}
+div.relative {
+    position: relative;
+    left: 30px;
+
+    width:35%
+}
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 30%;
+    width: 40%;
+    height: 100px;
+
+}
+</style>
+
+
+<script type="text/javascript">
+     var n=0;
+     var t=0.5; //seconds
+     var picsrc=["Images/main/1.png","Images/main/1.1.png","Images/main/1.png","Images/main/1.1.png","Images/main/1.png","Images/main/2.png","Images/main/3.png","Images/main/4.png","Images/main/5.png","Images/main/6.png","Images/main/7.png","Images/main/8.png","Images/main/9.png","Images/main/10.png","Images/main/11.png","Images/main/12.png","Images/main/11.png","Images/main/12.png","Images/main/11.png","Images/main/12.png","Images/main/11.png"];
+     var pic=new Array();
+     for (i=0; i<picsrc.length;i++){
+     pic[i]=new Image();
+     pic[i].src=picsrc[i];
+     }
+     function slideShow(){
+     n++;
+     if(n>picsrc.length-1){
+     n=0;
+     }
+     document.images["tool"].src=pic[n].src;
+     setTimeout("slideShow()",1000*t);
+     }
+     </script>
+     
+	 
+<script>
+
+  document.addEventListener('DOMContentLoaded',function(event){
+  // array with texts to type in typewriter
+  var dataText = [ "Everything! |"];
+  
+  // type one text in the typwriter
+  // keeps calling itself until the text is finished
+  function typeWriter(text, i, first, fnCallback) {
+  
+    // chekc if text isn't finished yet
+    if (i < (text.length)) {
+      // add next character to h1
+     document.querySelector("everything").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+
+      // wait for a while and call this function again for next character
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      }, 500);
+    }
+    // text finished, call callback if there is a callback function
+    else if (typeof fnCallback == 'function') {
+      // call callback after timeout
+      setTimeout(fnCallback, 700);
+    }
+  }
+  // start a typewriter animation for a text in the dataText array
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 2000);
+     }
+     // check if dataText[i] exists
+    if (i < dataText[i].length) {
+      // text exists! start typewriter animation
+     typeWriter(dataText[i], 0, true, function(){
+       // after callback (and whole text has been animated), start next text
+       StartTextAnimation(i);
+     });
+    }
+  }
+  // start the text animation
+  StartTextAnimation(0);
+});
+</script>
+     
+</head>
+<body onload="slideShow()">
+<center> 
+
+
+
+<table width="100%">
+<tr>
+<td>
+
+<center>
+<div class="absolute">
+<text class="cook"> Let's cook </text> <span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span>
+<text class="everything">  Everything!</text>
+</center>
+
+</div>
+
+</td>
+</tr>
+</table>
+
+
+<div class="fixed">
+<img src="Images/main_bg1_1.png" width="100%">
+</div>
+
+
+</center>
+</body>
+</html>

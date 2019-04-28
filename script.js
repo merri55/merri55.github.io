@@ -9,12 +9,13 @@ var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
-//recognition.continuous = false;
+recognition.continuous = true;
 recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 var diagnostic = document.querySelector('.output');
+var audio = document.querySelector('.audio');
 var bg = document.querySelector('html');
 var hints = document.querySelector('.hints');
 
@@ -25,14 +26,9 @@ colors.forEach(function(v, i, a){
 });
 hints.innerHTML = 'Tap/click then say a color to change the background color of the app. Try '+ colorHTML + '.';
 
-document.body.onclick = function() {
+document.body.onload = function() {
   recognition.start();
   console.log('Ready to receive a color command.');
-}
-
-recognition.onsoundstart = function() { 
-  recognition.start();
-  console.log('Speech has been detected'); 
 }
 
 recognition.onresult = function(event) {
@@ -48,15 +44,25 @@ recognition.onresult = function(event) {
   var last = event.results.length - 1;
   var color = event.results[last][0].transcript;
 
-  diagnostic.textContent = 'Result received: ' + color + ' with confidance: ' + event.results[0][0].confidence'.';
+  diagnostic.textContent = 'Result received: ' + color + '  ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
   bg.style.backgroundColor = color;
   console.log('Confidence: ' + event.results[0][0].confidence);
+  recognition.start();
+  audio.textContent = 'speach started';
 }
 
-recognition.onspeechend = function() {
-  recognition.stop();
+recognition.onsoundstart = function() {
   recognition.start();
+  audio.textContent = 'speach started';
 }
+
+recognition.onsoundend = function() {
+	recognition.stop();
+	audio.textContent = 'speach ended';
+	
+}
+
+
 
 recognition.onnomatch = function(event) {
   diagnostic.textContent = "I didn't recognise that color.";

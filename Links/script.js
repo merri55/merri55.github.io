@@ -17,6 +17,10 @@ recognition.maxAlternatives = 1;
 var diagnostic = document.querySelector('.output');
 var audio = document.querySelector('.audio');
 var bg = document.querySelector('html');
+var scrollDown = false;
+var scrollUp = false;
+var stop = true;
+var scrolling;
 
 
 document.body.onload = function() {
@@ -38,7 +42,27 @@ recognition.onresult = function(event) {
   var color = event.results[last][0].transcript;
 
   diagnostic.textContent = 'Result received: ' + color + '  ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  
+  if(color.includes('scroll down')) {
+	  scrollDown = true;
+	  stop = false;
+	  scrolling = setInterval(scrollDownFunc, 100);
+  }
+  if(color.includes('scroll up') && !scrollDown) {
+	  scrolling = setInterval(scrollUpFunc, 100);
+	  scrollUp = true;
+	  stop = false;
+  }
+  if(color.includes('stop')) {
+	  clearInterval(scrolling);
+	  stop = true;
+	  scrollDown = false;
+	  scrollUp = true;
+  }
+  
+  
   bg.style.backgroundColor = color;
+  
   console.log('Confidence: ' + event.results[0][0].confidence);
   recognition.start();
   audio.textContent = 'speach started';
@@ -63,4 +87,18 @@ recognition.onnomatch = function(event) {
 
 recognition.onerror = function(event) {
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+}
+
+function scrollDownFunc() {
+	window.scrollBy({
+	top: 20,
+	behavior: 'smooth'
+	});
+}
+
+function scrollUpFunc() {
+	window.scrollBy({
+	top: -20,
+	behavior: 'smooth'
+	});
 }

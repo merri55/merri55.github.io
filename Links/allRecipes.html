@@ -23,29 +23,28 @@ background:lightgrey}
     text-align: center;
     cursor: pointer;
 }
-#header1{
-height:75px;
-position:center;
+
+.header{
+height:10%;
+position:fixed;
 align:center;
 width:60%;
-margin-top:5px;
 background-color:lightgrey;
 font-family:'Open Sans';
 font-size:30px;
 text-align:center;
-line-height: 76px;
 letter-spacing:5px;
+margin: 4% 20%;
+z-index :-2;
 }
 
-.menu_x.visible-xs-inline {
-    float: none;
-    font-size: 25px;
-    position: relative;
-    margin: 0 5px;
-	color:white;
-	padding-top:8%;
-	}
-
+.hr {
+position:fixed;
+align:center;
+width:60%;
+margin: 3% 20%;
+z-index :-2;
+}
 	
 	
 	
@@ -103,7 +102,7 @@ letter-spacing:5px;
 
 .dropdown-content {
   position:relative;
-
+	min-width: 20%;
   display: none;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -175,18 +174,18 @@ letter-spacing:5px;
 <body>
 
 <div style="center" class="topnav" id="myTopnav">
-  <a href="Links/allRecipes.html">All Recipes</a>
+  <a href="allRecipes.html">All Recipes</a>
   
   <div class="dropdown">
     <button class="dropbtn">Meal type 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="Links/breakfast.html">Breakfast</a>
-      <a href="Links/lunch.html">Lunch</a>
-      <a href="Links/dinner.html">Dinner</a>
-	  <a href="Links/dessert.html">Dessert</a>
-	  <a href="Links/snacks.html">Snacks</a>
+      <a href="breakfast.html">Breakfast</a>
+      <a href="lunch.html">Lunch</a>
+      <a href="dinner.html">Dinner</a>
+	  <a href="dessert.html">Dessert</a>
+	  <a href="snacks.html">Snacks</a>
     </div>
   </div>
   
@@ -195,9 +194,9 @@ letter-spacing:5px;
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="Links/vegan.html">Vegan</a>
-      <a href="Links/vegetarian.html">Vegetarian</a>
-      <a href="Links/meat-eater.html">Meat-eater</a>
+      <a href="vegan.html">Vegan</a>
+      <a href="vegetarian.html">Vegetarian</a>
+      <a href="meat-eater.html">Meat-eater</a>
     </div>
   </div> 
   <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -206,8 +205,10 @@ letter-spacing:5px;
 
 
 
-<center> <div id="header1"> 
-<span class="menu_x visible-xs-inline">x </span>All Recipes<span class="menu_x visible-xs-inline"> x</span>
+<center>
+<div class="hr"> <hr> </div>
+ <div class="header"> 
+All Recipes
 </div>
 <br>
 

@@ -1,53 +1,57 @@
+<!DOCTYPE html>
 <html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
-
-<style>
-.link { text-decoration:none;
-outline:none;
-font-size:25; 
-font-family:"Open Sans"; 
-letter-spacing:2px;
-color:black}
-.link:hover{
-background:lightgrey}
+<base target="main"> </base>
+<style type="text/css">
+body {margin:0;font-family:Arial}
 
 
-
-#header1{
-height:75px;
-position:center;
-align:center;
-width:60%;
-margin-top:5px;
-background-color:FFE78D;
-font-family:'Open Sans';
-font-size:25px;
-text-align:center;
-line-height: 76px;
-letter-spacing:5px;
+.inside {
+position: absolute;
+	width : 25%;
+	padding-left: 20%;
+	padding-left: 23%;
+	font-size: 55px;
 }
 
+.right {
+position: absolute;
+	width : 25%;
+	padding-left: 55%;
+	padding-right: 20%;
+	font-size: 20px;
+}
 
-
-.cook
-{
-z-index: 1000;
-margin:30px;
-padding:4px;
-text-decoration:none;
-outline:none;
-font-size: 55;
-    position: relative;
+.cook (
+	z-index: 1;
+	padding-top: 300px;
+	padding-left: 10%;
+	margin:30px;
+	padding:4px;
+	text-decoration:none;
+	outline:none;
+	font-size: 55px;
     margin: 0 5px;
 	color:black;
 	text-shadow:1px 1px lightgrey;
 	font-family:"Alex Brush"; 
+)
+
+
+.cook:hover{
+text-shadow:1.5px 1.5px grey}
+
+div.fixed_alt {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width:100%;
+	z-index: -1;
 }
-
-
 .everything
 {
 z-index: 1000;
@@ -55,7 +59,7 @@ margin:30px;
 padding:4px;
 text-decoration:none;
 outline:none;
-font-size: 50;
+font-size: 25px;
     position: relative;
     margin: 0 5px;
 	color:black;
@@ -63,151 +67,105 @@ font-size: 50;
 	font-family:"Alex Brush"; 
 }
 
-
 .headline
 {
+position: absolute;
+width:25%;
 margin:30px;
 padding:4px;
 text-decoration:none;
 outline:none;
-font-size: 45;
+font-size: 75px;
     position: relative;
     margin: 0 5px;
-    color:black;
-    text-shadow:1px 1px lightgrey;
-    font-family:"Open sans"; 
-    letter-spacing:5px;
-}
-
-.menu_x.visible-xs-inline {
-    float: none;
-    font-size: 25px;
-    position: relative;
-    top: -2px;
-    margin: 0 5px;
-    color:white;
-    }
-    
-div.fixed_alt {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width:100%;
-	z-index: 0;
-
-
-}
-div.relative {
-    position: relative;
-    left: 30px;
-
-    width:35%
-}
-div.absolute {
-    position: absolute;
-    top: 80px;
-    right: 30%;
-    width: 40%;
-    height: 100px;
-
+	color:black;
+	text-shadow:1px 1px lightgrey;
+	font-family:"Alex Brush"; 
+	padding-top: 10%;
+	padding-left: 20%;
 }
 
 
 
 
 
-
-
-
-
-
-body {margin:0;font-family:Arial}
 
 .topnav {
-display:inline-block;
 
-list-style:none;
+
+  overflow: hidden;
+  background-color: white;
+  left: 50%;
+  transform: translate(-50%, 0);
   position:fixed;
-  width: 500%;
-  z-index: 1000;
-  
-  
-  left:50%;top:0;
-margin-left:-375px; /* negative margin equal to half the width */
-width:750px;
+
 }
 
 .topnav a {
-   text-align: center;
-  z-index: 1000;
   float: left;
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
-  font-size:25; 
   font-family:"Open Sans"; 
-  letter-spacing:2px;
+  letter-spacing:3px;
+  font-size:20px; 
+
 }
 
 .active {
-  z-index: 1000;
   background-color: #4CAF50;
-  color: black;
+  color: white;
 }
 
 .topnav .icon {
-  z-index: 1000;
   display: none;
+  text-align: right;
 }
 
 .dropdown {
-  z-index: 1000;
   float: left;
   overflow: hidden;
-  z-index: 1000;
 }
 
-.dropdown .dropbtn {
-  z-index: 1000;
-  font-size:25; 
-  font-family:"Open Sans"; 
-  letter-spacing:2px;  
+.dropdown .dropbtn { 
   border: none;
   outline: none;
   color: black;
-  padding: 14px 16px;
+  padding: 16px 20px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  font-size:20px; 
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
 }
 
 .dropdown-content {
   position:relative;
-  font-size:17; 
+
   display: none;
-  position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1000;
+  z-index: 1;
 }
 
 .dropdown-content a {
-  z-index: 1000;
-  font-size:17; 
   float: none;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: center;
+  font-size:17px; 
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: lightgrey;
-  color: black;
+  background-color: #555;
+  color: white;
 }
 
 .dropdown-content a:hover {
@@ -219,22 +177,24 @@ width:750px;
   display: block;
 }
 
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child), .dropdown .dropbtn {
+@media screen and (max-width: 1350px) {
+  .topnav a:not(:last-child), .dropdown .dropbtn {
     display: none;
   }
   .topnav a.icon {
     float: right;
     display: block;
+	  text-align: right;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1350px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
+	  text-align: right;
   }
   .topnav.responsive a {
     float: none;
@@ -251,44 +211,111 @@ width:750px;
 }
 
 
+
+
+h1 {
+  font-size: 25px;
+  color: black;
+  text-transform: uppercase;
+  	text-shadow:1px 1px lightgrey;
+	font-family:"Open Sans"
+	align-text:center
+}
+
+span1 {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+
+
 </style>
+</head>
+<body>
+<div style="center" class="topnav" id="myTopnav">
+  <a href="#contact">All Recipes</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Meal type 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Breakfast</a>
+      <a href="#">Lunch</a>
+      <a href="#">Dinner</a>
+	  <a href="#">Dessert</a>
+	  <a href="#">Snacks</a>
+	  <a href="#">Drinks</a>
+    </div>
+  </div>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Lifestyle 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Vegan</a>
+      <a href="#">Vegetarian</a>
+      <a href="#">Meat-eater</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
 
 
-<script type="text/javascript">
-     var n=0;
-     var t=0.5; //seconds
-     var picsrc=["Images/main/1.png","Images/main/1.1.png","Images/main/1.png","Images/main/1.1.png","Images/main/1.png","Images/main/2.png","Images/main/3.png","Images/main/4.png","Images/main/5.png","Images/main/6.png","Images/main/7.png","Images/main/8.png","Images/main/9.png","Images/main/10.png","Images/main/11.png","Images/main/12.png","Images/main/11.png","Images/main/12.png","Images/main/11.png","Images/main/12.png","Images/main/11.png"];
-     var pic=new Array();
-     for (i=0; i<picsrc.length;i++){
-     pic[i]=new Image();
-     pic[i].src=picsrc[i];
-     }
-     function slideShow(){
-     n++;
-     if(n>picsrc.length-1){
-     n=0;
-     }
-     document.images["tool"].src=pic[n].src;
-     setTimeout("slideShow()",1000*t);
-     }
-     </script>
-     
+<p class="headline">  Let's cook  </p> 
+
+
+
+
+<div class="inside">
+  
+  <h1> &nbsp&nbsp Everything!</h1>
+</div>
+
+
+<div class="right">
+	Your personal, voice activated recipe guide.
+	For easy, troubleless cooking.
+</div>
+
+<div class="fixed_alt">
+<img src="Images/main_bg1_1.png" width="100%">
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
 	 
 <script>
 
-
-  document.addEventListener('DOMContentLoaded',function(event){
+document.addEventListener('DOMContentLoaded',function(event){
   // array with texts to type in typewriter
-  var dataText = [ "Everything! |"];
+  var dataText = [ "Everything!"];
   
   // type one text in the typwriter
   // keeps calling itself until the text is finished
-  function typeWriter(text, i, first, fnCallback) {
-  
+  function typeWriter(text, i, fnCallback) {
     // chekc if text isn't finished yet
     if (i < (text.length)) {
       // add next character to h1
-     document.querySelector("everything").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span1 aria-hidden="true"></span1>';
 
       // wait for a while and call this function again for next character
       setTimeout(function() {
@@ -306,114 +333,21 @@ width:750px;
      if (typeof dataText[i] == 'undefined'){
         setTimeout(function() {
           StartTextAnimation(0);
-        }, 2000);
+        }, 20000);
      }
      // check if dataText[i] exists
     if (i < dataText[i].length) {
       // text exists! start typewriter animation
-     typeWriter(dataText[i], 0, true, function(){
+     typeWriter(dataText[i], 0, function(){
        // after callback (and whole text has been animated), start next text
-       StartTextAnimation(i);
+       StartTextAnimation(i + 1);
      });
     }
   }
   // start the text animation
   StartTextAnimation(0);
-  
-  
-  function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-  }
 });
 </script>
-     
-</head>
 
-<div class="topnav" id="myTopnav" align=center>
-  <a href="#home" >Soups</a>
-  <a href="#news" >Appetizers</a>
-  <a href="#contact" >Salads</a>
-  <div class="dropdown">
-    <button class="dropbtn">Main dishes 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-	  <a href="#">Link 4</a>
-	  <a href="#">Link 5</a>
-    </div>
-  </div> 
-  <a href="#about">Desserts</a>
-  
-</div>
-
-
-
-
-<body onload="slideShow()">
-<center> 
-
-
-
-<table width="100%">
-<tr>
-<td>
-
-<center>
-<div class="absolute">
-<text class="cook"> Let's cook </text> <span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span><span>&#95;</span>
-<text class="everything">  Everything!</text>
-</center>
-
-</div>
-
-</td>
-</tr>
-</table>
-
-
-<div class="fixed_alt">
-<img src="Images/main_bg1_1.png" width="100%">
-</div>
-
-
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-<br><br><br><br><br>
-<text class="everything">  Everything!</text>
-
-<text class="everything">  Everything!</text>
-
-<text class="everything">  Everything!</text>
-
-<text class="everything">  Everything!</text>
-
-</center>
 </body>
 </html>

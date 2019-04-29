@@ -83,10 +83,9 @@ font-size: 75px;
 	text-shadow:1px 1px lightgrey;
 	font-family:"Alex Brush"; 
 	padding-top: 14%;
+	white-space: nowrap;
 	
-	  overflow: hidden; 
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
 	
 }
 
@@ -249,22 +248,22 @@ span1 {
 
   	padding-top: 8%;
 	width: 50%; 
-	height: 12%;
+	height :10%;
 }
 
 .wrapper div {
 
-   
-   padding: 20px;
+   min-height: 10%;
+   padding: 0px;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
 }
 #one { text-align:center;}
 #two { text-align:center; font-size: 70px;
-	font-family:"Comic Sans"; line-height: 0.005;}
+	font-family:"Comic Sans"; padding-top:5% }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1200px) {
    .wrapper {
       height: auto; overflow: hidden; // clearing 
    }
@@ -302,19 +301,18 @@ span1 {
 </head>
 <body>
 <div style="center" class="topnav" id="myTopnav">
-  <a href="#contact">All Recipes</a>
+  <a href="Links/allRecipes.html">All Recipes</a>
   
   <div class="dropdown">
     <button class="dropbtn">Meal type 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Breakfast</a>
-      <a href="#">Lunch</a>
-      <a href="#">Dinner</a>
-	  <a href="#">Dessert</a>
-	  <a href="#">Snacks</a>
-	  <a href="#">Drinks</a>
+      <a href="Links/breakfast.html">Breakfast</a>
+      <a href="Links/lunch.html">Lunch</a>
+      <a href="Links/dinner.html">Dinner</a>
+	  <a href="Links/dessert.html">Dessert</a>
+	  <a href="Links/snacks.html">Snacks</a>
     </div>
   </div>
   
@@ -323,9 +321,9 @@ span1 {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Vegan</a>
-      <a href="#">Vegetarian</a>
-      <a href="#">Meat-eater</a>
+      <a href="Links/vegan.html">Vegan</a>
+      <a href="Links/vegetarian.html">Vegetarian</a>
+      <a href="Links/meat-eater.html">Meat-eater</a>
     </div>
   </div> 
   <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -338,7 +336,7 @@ span1 {
 <center>
 <div class="wrapper">
     <div id="one" class="headline">Let's cook.. </div>
-    <div id="two" ><h1>Everything!</h1> _________</div>
+    <div id="two" ><h1>Everything!</h1> </div>
 </div>
 </center>
 </div>

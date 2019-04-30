@@ -27,8 +27,8 @@ background:lightgrey}
     cursor: pointer;
 }
 
+
 .header{
-height:10%;
 position:absolute;
 align:center;
 width:60%;
@@ -37,15 +37,15 @@ font-family:'Open Sans';
 font-size:30px;
 text-align:center;
 letter-spacing:5px;
-margin: 4% 20%;
-padding-top:2%;
+margin:90px 20%;
+padding-top:30px;
+padding-bottom:30px;
 z-index :-2;
 }
 
 .content {
-width:60%;
-margin: 8% 20%;
-padding-top:2%;
+margin: 10px 20%;
+padding-top:200px;
 }
 
 .tip{
@@ -61,12 +61,27 @@ padding-right:5%;
 }
 
 .recipe{
-margin: 3% 20%;
+margin: 3% 0%;
 text-align:center;
 padding-bottom:2%;
 padding-top:2%;
 padding-left:5%;
 padding-right:5%;
+font-size:20;
+
+}
+
+
+.image{
+margin-top: 2%;
+margin-bottom: 2%;
+margin-right: 10%;
+margin-left: 10%;
+text-align:center;
+padding-bottom:2%;
+padding-left:5%;
+padding-right:5%;
+font-size:20;
 
 }
 
@@ -75,21 +90,19 @@ padding-right:5%;
 position:absolute;
 align:center;
 width:60%;
-margin: 3% 20%;
+margin: 65px 20%;
 z-index :-2;
 }
 	
 	
 	
+	
 .topnav {
-
-
-  overflow: hidden;
+ margin-left: auto;
+ padding-left:95px;
+    margin-right: auto;
+	width:500px;
   background-color: white;
-  left: 50%;
-  transform: translate(-50%, 0);
-  position:fixed;
-
 }
 
 .topnav a {
@@ -97,17 +110,12 @@ z-index :-2;
   display: block;
   color: black;
   text-align: center;
-  padding: 16px 16px;
+  padding: 10px 16px;
   text-decoration: none;
   font-family:"Open Sans"; 
   letter-spacing:3px;
   font-size:20px; 
 
-}
-
-.active {
-  background-color: #4CAF50;
-  color: white;
 }
 
 .topnav .icon {
@@ -124,7 +132,7 @@ z-index :-2;
   border: none;
   outline: none;
   color: black;
-  padding: 16px 20px;
+  padding: 10px 20px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -134,15 +142,16 @@ z-index :-2;
 }
 
 .dropdown-content {
-  position:relative;
-	min-width: 20%;
-  display: none;
+  position: absolute;
+display: none;
   background-color: #f9f9f9;
+  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
+z-index:1;
   float: none;
   color: black;
   padding: 12px 16px;
@@ -157,6 +166,8 @@ z-index :-2;
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-color: #555;
   color: white;
+  z-index:1;
+  
 }
 
 .dropdown-content a:hover {
@@ -171,26 +182,31 @@ z-index :-2;
 @media screen and (max-width: 1000px) {
   .topnav a:not(:last-child), .dropdown .dropbtn {
     display: none;
+	
   }
   .topnav a.icon {
-    float: right;
+  
+  
+    float: left;
     display: block;
-	  text-align: right;
+	  text-align: center;
+	  margin-left:35%;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {position: relative; }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
-	  text-align: right;
+	text-align: right;
   }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
+	
   }
   .topnav.responsive .dropdown {float: none;}
   .topnav.responsive .dropdown-content {position: relative;}
@@ -248,6 +264,7 @@ Spicy root & lentil casserole
 
 <div class="content">
 
+<div class="image">
 <table width="60%">
 <b>Ingredients:</b>  <br><br>
 2 tbsp sunflower or vegetable oil<br>
@@ -262,12 +279,12 @@ Spicy root & lentil casserole
 
 a small bunch of fresh coriander, roughly chopped<br>
 low-fat yogurt and naan bread, to serve<br>
-
+</div>
 <div class="recipe">
-
+<div class="image">
 <img src="Images/casserole.jpg" width="100%">
 <br><br><br>
-
+</div>
 <b>1. </b>Heat the oil in a large pan and cook the onion and garlic over a medium heat for 3-4 minutes until softened, stirring occasionally. Tip in the potatoes, carrots and parsnips, turn up the heat and cook for 6-7 minutes, stirring, until the vegetables are golden.
  <br>
  <br>
@@ -288,5 +305,17 @@ low-fat yogurt and naan bread, to serve<br>
 </center>
 
 <script src="script.js"></script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
 </body>
 </html>

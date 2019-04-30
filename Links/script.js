@@ -47,9 +47,11 @@ recognition.onresult = function(event) {
 	  scrollDown = true;
 	  scrollUp = false;
 	  stop = false;
+	  clearInterval(scrolling);
 	  scrolling = setInterval(scrollDownFunc, 100);
   }
-  if(color.includes('scroll up') && !scrollDown) {
+  if(color.includes('scroll up')) {
+	  clearInterval(scrolling);
 	  scrolling = setInterval(scrollUpFunc, 100);
 	  scrollUp = true;
 	  scrollDown = false;

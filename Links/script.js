@@ -45,19 +45,36 @@ recognition.onresult = function(event) {
   
   if(color.includes('scroll down')) {
 	  scrollDown = true;
+	  scrollUp = false;
 	  stop = false;
 	  scrolling = setInterval(scrollDownFunc, 100);
   }
   if(color.includes('scroll up') && !scrollDown) {
 	  scrolling = setInterval(scrollUpFunc, 100);
 	  scrollUp = true;
+	  scrollDown = false;
 	  stop = false;
   }
   if(color.includes('stop')) {
-	  clearInterval(scrolling);
+	  
 	  stop = true;
+	  if(scrollDown) {
+		 window.scrollBy({
+			top: -100,
+			behavior: 'smooth'
+		});
+	  }
+	  if(scrollUp) {
+		  window.scrollBy({
+			top: 100,
+			behavior: 'smooth'
+		});
+	  }
+	  
+	  clearInterval(scrolling);
+	  
 	  scrollDown = false;
-	  scrollUp = true;
+	  scrollUp = false;
   }
   
   
@@ -68,12 +85,12 @@ recognition.onresult = function(event) {
   //audio.textContent = 'speach started';
 }
 
-recognition.onsoundstart = function() {
+recognition.onspeachstart = function() {
   recognition.start();
   //audio.textContent = 'speach started';
 }
 
-recognition.onsoundend = function() {
+recognition.onspeachstart = function() {
 	recognition.stop();
 	//audio.textContent = 'speach ended';
 	
@@ -88,6 +105,33 @@ recognition.onnomatch = function(event) {
 recognition.onerror = function(event) {
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
+
+window.onscroll = function(ev) {
+	if(scrollDown && !stop) {
+		if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+			clearInterval(scrolling);
+			scrollDown = false;
+			stop = true;
+		}
+	}
+	if(scrollUp && !stop) {
+		var body = document.body; //IE 'quirks'
+		var document = document.documentElement; //IE with doctype
+		document = (document.clientHeight) ? document : body;
+
+		if (document.scrollTop == 0) {
+			scrollUp = false;
+			stop = true;
+			clearInterval(scrolling);
+		} 
+	}  
+};
+
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+      if(scrollUp) clearInterval(scrolling);
+    }
+};
 
 function scrollDownFunc() {
 	window.scrollBy({

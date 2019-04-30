@@ -14,9 +14,9 @@ recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-var diagnostic = document.querySelector('.output');
-var audio = document.querySelector('.audio');
-var bg = document.querySelector('html');
+//var diagnostic = document.querySelector('.output');
+//var audio = document.querySelector('.audio');
+//var bg = document.querySelector('html');
 var scrollDown = false;
 var scrollUp = false;
 var stop = true;
@@ -41,7 +41,7 @@ recognition.onresult = function(event) {
   var last = event.results.length - 1;
   var color = event.results[last][0].transcript;
 
-  diagnostic.textContent = 'Result received: ' + color + '  ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  //diagnostic.textContent = 'Result received: ' + color + '  ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
   
   if(color.includes('scroll down')) {
 	  scrollDown = true;
@@ -65,17 +65,17 @@ recognition.onresult = function(event) {
   
   console.log('Confidence: ' + event.results[0][0].confidence);
   recognition.start();
-  audio.textContent = 'speach started';
+  //audio.textContent = 'speach started';
 }
 
 recognition.onsoundstart = function() {
   recognition.start();
-  audio.textContent = 'speach started';
+  //audio.textContent = 'speach started';
 }
 
 recognition.onsoundend = function() {
 	recognition.stop();
-	audio.textContent = 'speach ended';
+	//audio.textContent = 'speach ended';
 	
 }
 

@@ -47,6 +47,44 @@ margin: 10px 20%;
 padding-top:200px;
 }
 
+.tip{
+width : 50%;
+margin: 8% 20%;
+background-color: lightgrey;
+text-align:center;
+padding-bottom:2%;
+padding-top:2%;
+padding-left:5%;
+padding-right:5%;
+
+}
+
+.recipe{
+margin: 3% 0%;
+text-align:center;
+padding-bottom:2%;
+padding-top:2%;
+padding-left:5%;
+padding-right:5%;
+font-size:20;
+
+}
+
+
+.image{
+margin-top: 2%;
+margin-bottom: 2%;
+margin-right: 10%;
+margin-left: 10%;
+text-align:center;
+padding-bottom:2%;
+padding-left:5%;
+padding-right:5%;
+font-size:20;
+
+}
+
+
 .hr {
 position:absolute;
 align:center;
@@ -54,6 +92,7 @@ width:60%;
 margin: 65px 20%;
 z-index :-2;
 }
+	
 	
 	
 	
@@ -178,24 +217,10 @@ z-index:1;
 }
 
 
-
 </style>
 </head>
 <body>
 
-
-<script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-</script>
-
-<center>
 <div style="center" class="topnav" id="myTopnav">
   <a href="allRecipes.html">All Recipes</a>
   
@@ -225,50 +250,74 @@ function myFunction() {
   <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
-</center>
+
 
 
 <center>
 <div class="hr"> <hr> </div>
  <div class="header"> 
-All Recipes
+Peanut Butter Cookies
 </div>
 <br>
 
 
 <div class="content">
 
-<table cellpadding="15%">
-<tr align="center">
-<td width="20%">
-<a href="pancakes.html" class="link">  <img src="Images/cover_pancakes.jpg" width="100%">  <br><br> American ancakes<br>  </a> 
-</td>
-<td width="20%">
-<a href="moroccan_eggs.html" class="link">  <img src="Images/cover_moroccan_eggs.jpg" width="100%">  <br><br> Spicy Moroccan eggs<br>  </a> 
-</td>
-<td width="20%">
-<a href="casserole.html" class="link">  <img src="Images/cover_casserole.jpg" width="100%">  <br><br> Spicy lentil casserole </a> 
-</td>
-</tr>
+<div class="image">
+<table width="60%">
+<b>Ingredients:</b>  <br>
+1 cup shortening<br>
+1 cup peanut butter<br>
+1 cup sugar<br>
+1 cup packed brown sugar<br>
+3 large eggs<br>
+3 cups all-purpose flour<br>
+2 teaspoons baking soda<br>
+1/4 teaspoon salt<br>
 
 
-<tr align="center">
-<td width="20%">
-<a href="sweet_potato.html" class="link">  <img src="Images/cover_sweet_potato.jpg" width="100%">  <br><br> Sweet potato cakes </a> 
-</td>
-<td width="20%">
-<a href="lentil_soup.html" class="link">  <img src="Images/cover_lentil_soup.jpg" width="100%">  <br><br> Lentil soup </a> 
-</td>
-<td width="20%">
-<a href="peanut_butter_cookies.html" class="link">  <img src="Images/cover_peanut_butter_cookies.jpg" width="100%">  <br><br> Peanut butter cookies </a> 
-</td>
+</div>
+<div class="recipe">
 
-</tr>
+<div class="image">
+<img src="Images/peanut_butter_cookies.jpg" width="100%">
+</div>
+<br><br><br>
+
+<b>1. </b>Preheat oven to 375°. In a large bowl, cream shortening, peanut butter and sugars until light and fluffy. Add eggs, one at a time, beating well after each addition. Combine flour, baking soda and salt; add to creamed mixture and mix well.
+
+ <br>
+ <br>
+<b>2. </b>Roll into 1-1/2-in. balls. Place 3 in. apart on ungreased baking sheets. Flatten with a fork or meat mallet if desired. Bake 10-15 minutes. Remove to wire racks to cool.
+<br>
+</div>
+
+<div class="tip">
+<b>Kitchen Tip</b> <br>
+<hr>
+Use a glass with a pretty pattern on the bottom to add flair to these cookies.<br><br>
+</div>
 
 </table>
 
 </div>
 
 </center>
+
+
+
+<script src="script.js"></script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
 </body>
 </html>

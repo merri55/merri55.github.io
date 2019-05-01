@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Speech color changer</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+<base target="main"> </base>
+<style type="text/css">
+body {margin:0;font-family:Arial}
+
+
+
+
+.desc {
+position: relative;
+	width : 50%;
+	margin: 30px 0%;
+	
+	font-size: 20px;
+	font-family:"Comic Sans"; 
+}
+
+div.fixed_alt {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width:100%;
+	z-index: -2;
+}
+.headline
+{
+
+position: relative;
+width:55%;
+margin:30px;
+padding:4px;
+text-decoration:none;
+outline:none;
+font-size: 75px;
+    margin: 0 5px;
+	color:black;
+	text-shadow:1px 1px lightgrey;
+	font-family:"Alex Brush"; 
+	padding-top: 20px;
+	white-space: nowrap;
+	
+	z-index: -1;
+}
+
+
+
+
+
+	
+.topnav {
+ margin-left: auto;
+ padding-left:95px;
+    margin-right: auto;
+	width:500px;
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
+  font-size:20px; 
+
+}
+
+.topnav .icon {
+  display: none;
+  text-align: right;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn { 
+  border: none;
+  outline: none;
+  color: black;
+  padding: 10px 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  font-size:20px; 
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
+}
+
+.dropdown-content {
+  position: absolute;
+display: none;
+  background-color: #f9f9f9;
+  min-width: 165px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+z-index:1;
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size:17px; 
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+  z-index:1;
+  
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 1000px) {
+  .topnav a:not(:last-child), .dropdown .dropbtn {
+    display: none;
+	
+  }
+  .topnav a.icon {
+  
+  
+    float: left;
+    display: block;
+	  text-align: center;
+	  margin-left:35%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .topnav.responsive {position: relative; }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+	text-align: right;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+	
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+
+
+h1 {
+  font-size: 25px;
+  color: black;
+  text-transform: uppercase;
+  	text-shadow:1px 1px lightgrey;
+	font-family:"Open Sans"
+	align-text:center
+}
+
+span1 {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+
+
+
+
+
+.wrapper { 
+
+	width: 50%; 
+	height :10%;
+}
+
+.wrapper div {
+
+   min-height: 10%;
+   padding: 0px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+#one { text-align:center; }
+#two { text-align:center;  font-size: 70px;
+	font-family:"Comic Sans"; margin-top:1% }
+
+@media screen and (min-width: 1200px) {
+   .wrapper {
+      height: auto; overflow: hidden; // clearing 
+   }
+   #one { width: 50%; float: left; }
+   #two { margin-left: 50%; }
+}
+
+
+
+.wrapper1 { 
+
+  	
+	width: 100%; 
+	height: 50%;
+	padding-top:40px;
+}
+
+.wrapper1 div {
+
+   
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+#one1 { text-align:center;padding-top: 5%;}
+#two1 { text-align:center; font-size: 20px;
+	font-family:"Comic Sans"; }
+
+}
+
+
+
+
+</style>
+</head>
+<body>
+<div style="center" class="topnav" id="myTopnav">
+  <a href="Links/allRecipes.html">All Recipes</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Meal type 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Links/breakfast.html">Breakfast</a>
+      <a href="Links/lunch.html">Lunch</a>
+      <a href="Links/dinner.html">Dinner</a>
+	  <a href="Links/dessert.html">Dessert</a>
+	  <a href="Links/snacks.html">Snacks</a>
+    </div>
+  </div>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Lifestyle 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="Links/vegan.html">Vegan</a>
+      <a href="Links/vegetarian.html">Vegetarian</a>
+      <a href="Links/meat-eater.html">Meat-eater</a>
+    </div>
+  </div> 
+  <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+
+
+<div class = "wrapper1">
+
+<center>
+
+</center>
+
+
+<div id="two1">
+<center>
+<div class="desc">
+ <div class="headline"> Guidelines </div><br><br><br>
+	Scroll remotely on any recipe page with 3 easy commands <br><br>
+	
+	Use "scroll down" voice command to start scrolling down. <br>
+	Use "scroll up" voice command to start scrolling up. <br>
+	Use "stop" voice command to stop scrolling. <br><br><br>
+	
+	That's all!<br>
+	
+</div>
+
+</center>
+</div>
+</div>
+
+<center>
+<div class="fixed_alt">
+<img src="Images/main_bg1_1.png" width="100%">
+</div>
+</center>
+
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+	 
+<script>
+
+document.addEventListener('DOMContentLoaded',function(event){
+  // array with texts to type in typewriter
+  var dataText = [ "Everything!"];
+  
+  // type one text in the typwriter
+  // keeps calling itself until the text is finished
+  function typeWriter(text, i, fnCallback) {
+    // chekc if text isn't finished yet
+    if (i < (text.length)) {
+      // add next character to h1
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span1 aria-hidden="true"></span1>';
+
+      // wait for a while and call this function again for next character
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      }, 500);
+    }
+    // text finished, call callback if there is a callback function
+    else if (typeof fnCallback == 'function') {
+      // call callback after timeout
+      setTimeout(fnCallback, 700);
+    }
+  }
+  // start a typewriter animation for a text in the dataText array
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 20000);
+     }
+     // check if dataText[i] exists
+    if (i < dataText[i].length) {
+      // text exists! start typewriter animation
+     typeWriter(dataText[i], 0, function(){
+       // after callback (and whole text has been animated), start next text
+       StartTextAnimation(i + 1);
+     });
+    }
+  }
+  // start the text animation
+  StartTextAnimation(0);
+});
+</script>
+
+</body>
+</html>

@@ -11,8 +11,9 @@ speechRecognitionList.addFromString(grammar, 1);
 recognition.grammars = speechRecognitionList;
 recognition.continuous = true;
 recognition.lang = 'en-US';
-recognition.interimResults = false;
+recognition.interimResults = true;
 recognition.maxAlternatives = 1;
+
 
 //var diagnostic = document.querySelector('.output');
 //var audio = document.querySelector('.audio');
@@ -20,7 +21,13 @@ recognition.maxAlternatives = 1;
 var scrollDown = false;
 var scrollUp = false;
 var stop = true;
+var scrollDownIndex = -1;
+var scrollUpIndex = -1;
+var stopIndex = -1;
+
 var scrolling;
+
+var diagnostic = document.querySelector('.output');
 
 
 document.body.onload = function() {
@@ -41,43 +48,57 @@ recognition.onresult = function(event) {
   var last = event.results.length - 1;
   var color = event.results[last][0].transcript;
 
-  //diagnostic.textContent = 'Result received: ' + color + '  ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  //diagnostic.textContent = 'Result received: ' + event.results[last][0].transcript + '  ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
   
-  if(color.includes('scroll down')) {
+  while (color.indexOf('scroll down') !== -1) {
+	  scrollDownIndex = color.indexOf('scroll down');
+	  color = color.substring(scrollDownIndex + 1);
+  }
+  
+  while (color.indexOf('scroll up') !== -1) {
+	  scrollUpIndex = color.indexOf('scroll up');
+	  color = color.substring(scrollUpIndex + 1);
+  }
+  
+  while (color.indexOf('stop') !== -1) {
+	  stopIndex = color.indexOf('stop');
+	  color = color.substring(stopIndex + 1);
+  }
+  
+  
+  diagnostic.textContent = 'Result received: ' + event.results[last][0].transcript + '  ' + scrollDownIndex + ' ' + scrollUpIndex + ' ' + stopIndex + ' ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  
+  
+  if(scrollDownIndex > scrollUpIndex && scrollDownIndex > stopIndex) {
 	  scrollDown = true;
 	  scrollUp = false;
 	  stop = false;
 	  clearInterval(scrolling);
 	  scrolling = setInterval(scrollDownFunc, 100);
   }
-  if(color.includes('scroll up')) {
+  if(scrollUpIndex > scrollDownIndex && scrollUpIndex > stopIndex) {
 	  clearInterval(scrolling);
 	  scrolling = setInterval(scrollUpFunc, 100);
 	  scrollUp = true;
 	  scrollDown = false;
 	  stop = false;
   }
-  if(color.includes('stop')) {
-	  
+  if(stopIndex > scrollDownIndex && stopIndex > scrollUpIndex) {
 	  stop = true;
-	  if(scrollDown) {
-		 window.scrollBy({
-			top: -100,
-			behavior: 'smooth'
-		});
-	  }
-	  if(scrollUp) {
-		  window.scrollBy({
-			top: 100,
-			behavior: 'smooth'
-		});
-	  }
+	  
 	  
 	  clearInterval(scrolling);
 	  
 	  scrollDown = false;
 	  scrollUp = false;
   }
+  
+  if (event.results[last].isFinal) {
+     scrollDownIndex = -1;
+	scrollUpIndex = -1;
+	stopIndex = -1;
+   }
+
   
   
   bg.style.backgroundColor = color;
@@ -148,3 +169,4 @@ function scrollUpFunc() {
 	behavior: 'smooth'
 	});
 }
+

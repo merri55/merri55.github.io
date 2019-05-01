@@ -2,16 +2,30 @@
 <head>
 <style type="text/css">
 .link { 
+
 text-decoration:none;
 outline:none;
 font-size:25; 
 font-family:"Open Sans"; 
 letter-spacing:2px;
-color:black}
+color:black
+text-align:center;
+
+
+}
 .link:hover{
 background:lightgrey}
 
+.text_link{
+vertical-align: middle;
+margin:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:90px;
 
+}
+.text_link:hover{background:lightgrey}
 .big_close {
     width: 100%;
     position: absolute;
@@ -43,7 +57,9 @@ z-index :-2;
 }
 
 .content {
-margin: 10px 20%;
+
+margin-top: 10px
+margin-right: 18%;
 padding-top:200px;
 }
 
@@ -142,25 +158,26 @@ z-index:1;
 @media screen and (max-width: 1000px) {
   .topnav a:not(:last-child), .dropdown .dropbtn {
     display: none;
-	
+    
   }
   .topnav a.icon {
   
   
     float: left;
     display: block;
-	  text-align: center;
+	  text-align: left;
 	  margin-left:35%;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .topnav.responsive {position: relative; }
+  .topnav.responsive {position: relative; margin-left:12%; }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
-	text-align: right;
+	text-align: left;
+    
   }
   .topnav.responsive a {
     float: none;
@@ -168,12 +185,13 @@ z-index:1;
     text-align: left;
 	
   }
-  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown {float: none; margin-right:15%;}
   .topnav.responsive .dropdown-content {position: relative;}
   .topnav.responsive .dropdown .dropbtn {
     display: block;
     width: 100%;
     text-align: left;
+    margin-right:15%;
   }
 }
 
@@ -238,46 +256,45 @@ All Recipes
 
 <div class="content">
 
-<table cellpadding="15%">
+<table cellpadding="0%" width="80%">
 <tr align="center">
-<td width="20%">
-<a href="pancakes.html" class="link">  <img src="Images/cover_pancakes.jpg" width="100%">  <br><br> American pancakes<br>  </a> 
+<td > 
+<a href="pancakes.html" class="link">  <img src="Images/cover_pancakes.jpg" width="80%" > <div class="text_link"> American pancakes </div> </a> 
+
 </td>
-<td width="20%">
-<a href="moroccan_eggs.html" class="link">  <img src="Images/cover_moroccan_eggs.jpg" width="100%">  <br><br> Spicy Moroccan eggs<br>  </a> 
+<td>
+<a href="moroccan_eggs.html" class="link" >  <img src="Images/cover_moroccan_eggs.jpg" width="80%">   <div class="text_link">Spicy Moroccan eggs</div></a> 
+</td >
+<td >
+<a href="casserole.html" class="link" >  <img src="Images/cover_casserole.jpg" width="80%">  <div class="text_link">Spicy lentil casserole </div></a> 
 </td>
-<td width="20%">
-<a href="casserole.html" class="link">  <img src="Images/cover_casserole.jpg" width="100%">  <br><br> Spicy lentil casserole </a> 
+
+</tr>
+
+<tr align="center">
+<td>
+<a href="sweet_potato.html" class="link">  <img src="Images/cover_sweet_potato.jpg" width="80%">  <div class="text_link">Sweet potato cakes</div> </a> 
+</td>
+<td >
+<a href="lentil_soup.html" class="link">  <img src="Images/cover_lentil_soup.jpg" width="80%">   <div class="text_link">Lentil soup</div> </a> 
+</td>
+<td >
+<a href="peanut_butter_cookies.html" class="link">  <img src="Images/cover_peanut_butter_cookies.jpg" width="80%">  <div class="text_link">Peanut butter cookies</div> </a> 
 </td>
 </tr>
 
 
 <tr align="center">
-<td width="20%">
-<a href="sweet_potato.html" class="link">  <img src="Images/cover_sweet_potato.jpg" width="100%">  <br><br> Sweet potato cakes </a> 
-</td>
-<td width="20%">
-<a href="lentil_soup.html" class="link">  <img src="Images/cover_lentil_soup.jpg" width="100%">  <br><br> Lentil soup </a> 
-</td>
-<td width="20%">
-<a href="peanut_butter_cookies.html" class="link">  <img src="Images/cover_peanut_butter_cookies.jpg" width="100%">  <br><br> Peanut butter cookies </a> 
-</tr>
 
 
-<tr align="center">
-</td>
-
-<td width="20%">
-<a href="cake.html" class="link">  <img src="Images/cover_cake.jpg" width="100%">  <br><br> Chocolate Cheesecake  </a> 
-</td>
-<td width="20%">
-</td>
-<td width="20%">
+<td >
+<a href="cake.html" class="link">  <img src="Images/cover_cake.jpg" width="80%">   <div class="text_link">Chocolate Cheesecake</div>  </a> 
 </td>
 
 </tr>
 
 </table>
+</div>
 
 </div>
 

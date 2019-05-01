@@ -27,7 +27,7 @@ var stopIndex = -1;
 
 var scrolling;
 
-var diagnostic = document.querySelector('.output');
+//var diagnostic = document.querySelector('.output');
 
 
 document.body.onload = function() {
@@ -66,7 +66,7 @@ recognition.onresult = function(event) {
   }
   
   
-  diagnostic.textContent = 'Result received: ' + event.results[last][0].transcript + '  ' + scrollDownIndex + ' ' + scrollUpIndex + ' ' + stopIndex + ' ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  //diagnostic.textContent = 'Result received: ' + event.results[last][0].transcript + '  ' + scrollDownIndex + ' ' + scrollUpIndex + ' ' + stopIndex + ' ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
   
   
   if(scrollDownIndex > scrollUpIndex && scrollDownIndex > stopIndex) {

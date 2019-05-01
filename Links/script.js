@@ -104,7 +104,6 @@ recognition.onresult = function(event) {
   bg.style.backgroundColor = color;
   
   console.log('Confidence: ' + event.results[0][0].confidence);
-  recognition.start();
   //audio.textContent = 'speach started';
 }
 
@@ -150,17 +149,14 @@ window.onscroll = function(ev) {
 	}  
 };
 
-window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-      if(scrollUp) clearInterval(scrolling);
-    }
-};
+
 
 function scrollDownFunc() {
 	window.scrollBy({
 	top: 20,
 	behavior: 'smooth'
 	});
+	  recognition.start();
 }
 
 function scrollUpFunc() {
@@ -168,5 +164,6 @@ function scrollUpFunc() {
 	top: -20,
 	behavior: 'smooth'
 	});
+	  recognition.start();
 }
 

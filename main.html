@@ -334,22 +334,64 @@ span1 {
   #one { font-size: 100px; }
   h1{ font-size: 80px;}
 }
+
+@media screen and (max-width: 1000px) {
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
+  font-size:30px; 
+
+}
+
+.dropdown .dropbtn { 
+  border: none;
+  outline: none;
+  color: black;
+  padding: 10px 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  font-size:30px; 
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
+}
+
+ .dropdown-content a {
+z-index:1;
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size:25px; 
+  font-family:"Open Sans"; 
+  letter-spacing:3px;
+}
+
+}
 </style>
 </head>
 <body>
 <div style="center" class="topnav" id="myTopnav">
-  <a href="Links/allRecipes.html">All Recipes</a>
+  <a href="Links/allRecipes.html" target="_self">All Recipes</a>
   
   <div class="dropdown">
     <button class="dropbtn">Meal type 
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="Links/breakfast.html">Breakfast</a>
-      <a href="Links/lunch.html">Lunch</a>
-      <a href="Links/dinner.html">Dinner</a>
-	  <a href="Links/dessert.html">Dessert</a>
-	  <a href="Links/snacks.html">Snacks</a>
+      <a href="Links/breakfast.html" target="_self">Breakfast</a>
+      <a href="Links/lunch.html" target="_self">Lunch</a>
+      <a href="Links/dinner.html" target="_self">Dinner</a>
+	  <a href="Links/dessert.html" target="_self">Dessert</a>
+	  <a href="Links/snacks.html" target="_self">Snacks</a>
     </div>
   </div>
   
@@ -358,12 +400,12 @@ span1 {
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="Links/vegan.html">Vegan</a>
-      <a href="Links/vegetarian.html">Vegetarian</a>
-      <a href="Links/meat-eater.html">Meat-eater</a>
+      <a href="Links/vegan.html" target="_self">Vegan</a>
+      <a href="Links/vegetarian.html" target="_self">Vegetarian</a>
+      <a href="Links/meat-eater.html" target="_self">Meat-eater</a>
     </div>
   </div> 
-  <a href="javascript:void(0);" style="font-size:20px;" class="icon" onclick="myFunction()">&#9776;</a>
+  <a href="javascript:void(0);" style="font-size:30px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
 

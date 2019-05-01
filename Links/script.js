@@ -88,7 +88,7 @@ recognition.onresult = function(event) {
 	  
 	  
 	  clearInterval(scrolling);
-	  
+	  scrolling = setInterval(stopFunc, 100);
 	  scrollDown = false;
 	  scrollUp = false;
   }
@@ -150,6 +150,10 @@ window.onscroll = function(ev) {
 };
 
 
+function stopFunc() {
+
+	  recognition.start();
+}
 
 function scrollDownFunc() {
 	window.scrollBy({

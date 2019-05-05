@@ -105,7 +105,7 @@ recognition.onresult = function(event) {
 	  
 	  
 	  clearInterval(scrolling);
-	  scrolling = setInterval(stopFunc, 100);
+	  //scrolling = setInterval(stopFunc, 100);
 	  scrollDown = false;
 	  scrollUp = false;
   }
@@ -135,24 +135,20 @@ recognition.onresult = function(event) {
   //audio.textContent = 'speach started';
 }
 
-recognition.onspeachstart = function() {
-  recognition.start();
-  //audio.textContent = 'speach started';
-}
 
-recognition.onspeachstart = function() {
-	recognition.stop();
-	//audio.textContent = 'speach ended';
-	
-}
 
+recognition.onend = function() {
+    recognition.start();
+};
 
 
 recognition.onnomatch = function(event) {
+	recognition.start();
   diagnostic.textContent = "I didn't recognise that color.";
 }
 
 recognition.onerror = function(event) {
+	recognition.start();
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 

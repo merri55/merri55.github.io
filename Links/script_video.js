@@ -41,6 +41,8 @@ document.body.onload = function() {
   console.log('Ready to receive a color command.');
 }
 
+
+
 recognition.onresult = function(event) {
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
   // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
@@ -66,21 +68,22 @@ recognition.onresult = function(event) {
 	  color = color.substring(scrollUpIndex + 1);
   }
   
-  while (color.indexOf('stop') !== -1) {
+  while (color.indexOf('stop') !== -1 && (color.substring(color.indexOf('stop') + 5, color.indexOf('stop') + 12)).indexOf('playing') == -1) {
 	  stopIndex = color.indexOf('stop');
 	  color = color.substring(stopIndex + 1);
   }
-  while (color.indexOf('play') !== -1) {
+  //diagnostic.textContent = 'Result received: ' + event.results[last][0].transcript + '  ' + playIndex + ' ' + pauseIndex + ' ' + stopIndex + ' ' + color.substring(color.indexOf('play') + 4, color.indexOf('play') + 7) + ' ' + color.includes('stop') + '  ' + color.includes('stop playing') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  while (color.indexOf('play') !== -1 && (color.substring(color.indexOf('play') + 4, color.indexOf('play') + 10)).indexOf('ing') == -1) {
 	  playIndex = color.indexOf('play');
 	  color = color.substring(playIndex + 1);
   }
-  while (color.indexOf('pause') !== -1) {
-	  pauseIndex = color.indexOf('pause');
+  while (color.indexOf('stop playing') !== -1) {
+	  pauseIndex = color.indexOf('stop playing');
 	  color = color.substring(pauseIndex + 1);
   }
   
   
-  //diagnostic.textContent = 'Result received: ' + event.results[last][0].transcript + '  ' + scrollDownIndex + ' ' + scrollUpIndex + ' ' + stopIndex + ' ' + color.includes('scroll down') + '  ' + color.includes('scroll up') + ' Confidence: ' + event.results[0][0].confidence + '.';
+  
   
   
   if(scrollDownIndex > scrollUpIndex && scrollDownIndex > stopIndex) {

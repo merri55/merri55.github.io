@@ -221,8 +221,9 @@ span1 {
 
 
 .wrapper { 
+	
 
-	width: 40%; 
+	width: 50%; 
 	height :10%;
 }
 
@@ -239,11 +240,17 @@ span1 {
 	font-family:"Comic Sans"; margin-top:1% }
 
 @media screen and (min-width: 1200px) {
+	.wrapper { 
+		width: 30%; 
+		margin-left: 5%;
+	}
+
    .wrapper {
       height: auto; overflow: hidden; // clearing 
    }
-   #one { width: 50%; float: left; }
-   #two { margin-left: 50%; }
+   #one { width: 50%; float: left;  text-align:right;}
+   #two { margin-left: 50%;  padding-top:2%; text-align:left;}
+   
 }
 
 
@@ -387,7 +394,7 @@ span1 {
       <a href="Links/meat-eater.html" target="_self">Meat-eater</a>
     </div>
   </div> 
-  <a href="javascript:void(0);" style="font-size:30px;" class="icon" onclick="myFunction()">&#9776;</a>
+  <a href="javascript:void(0);" style="font-size:40px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
 
@@ -398,7 +405,7 @@ span1 {
 <center>
 <div class="wrapper">
     <div id="one" class="headline">Let's cook.. </div>
-    <div id="two" ><h1>Everything!</h1> </div>
+    <div id="two" ><h1>&nbsp;&nbsp;&nbsp;&nbsp;Everything!</h1> </div>
 </div>
 </center>
 </div>

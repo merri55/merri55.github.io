@@ -29,7 +29,7 @@ var scrollUpIndex = -1;
 var stopIndex = -1;
 var playIndex = -1;
 var pauseIndex = -1;
-
+var video_playing = false;
 
 var scrolling;
 
@@ -110,9 +110,11 @@ recognition.onresult = function(event) {
 	  scrollUp = false;
   }
   if(playIndex > pauseIndex) {
+	  video_playing = true;
 	  playVid();
   }
   if(pauseIndex > playIndex) {
+	  video_playing = false;
 	  pauseVid();
   }
   
@@ -129,6 +131,7 @@ recognition.onresult = function(event) {
   bg.style.backgroundColor = color;
   
   console.log('Confidence: ' + event.results[0][0].confidence);
+  
   //audio.textContent = 'speach started';
 }
 
@@ -185,7 +188,7 @@ function scrollDownFunc() {
 	top: 20,
 	behavior: 'smooth'
 	});
-	  recognition.start();
+	  
 }
 
 function scrollUpFunc() {
@@ -193,7 +196,7 @@ function scrollUpFunc() {
 	top: -20,
 	behavior: 'smooth'
 	});
-	  recognition.start();
+	  
 }
 
 

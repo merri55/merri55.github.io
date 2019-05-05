@@ -138,17 +138,21 @@ recognition.onresult = function(event) {
 
 
 recognition.onend = function() {
+	if(video_playing) playVid();
     recognition.start();
+	if(video_playing) playVid();
 };
 
 
 recognition.onnomatch = function(event) {
 	recognition.start();
+	if(video_playing) playVid();
   diagnostic.textContent = "I didn't recognise that color.";
 }
 
 recognition.onerror = function(event) {
 	recognition.start();
+	if(video_playing) playVid();
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 
@@ -203,4 +207,3 @@ function playVid() {
 function pauseVid() { 
   vid.pause(); 
 } 
-

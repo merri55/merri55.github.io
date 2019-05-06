@@ -14,6 +14,7 @@ recognition.lang = 'en-US';
 recognition.interimResults = true;
 recognition.maxAlternatives = 1;
 
+var is_mobile = navigator.userAgent.match(/Android/i);
 
 //var diagnostic = document.querySelector('.output');
 //var audio = document.querySelector('.audio');

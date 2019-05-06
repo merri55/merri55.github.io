@@ -134,35 +134,33 @@ if(video_playing) playVid();
   
   console.log('Confidence: ' + event.results[0][0].confidence);
   
-
-  diagnostic.textContent = 'On result';
+	  diagnostic.textContent = "on result";
 	
   //audio.textContent = 'speach started';
 }
 
 recognition.onend = function(event) {
+		  diagnostic.textContent = "on end event";
   if(video_playing) playVid();
   else pauseVid();
   recognition.start();
   if(video_playing) playVid();
   else pauseVid();
-    diagnostic.textContent = 'On end with event: ' + event.error();
 }
 
 recodnition.onstart = function() {
+		  diagnostic.textContent = "on start";
   if(video_playing) playVid();
   else pauseVid();
-    diagnostic.textContent = 'on start: ';
 }
 
 recognition.onend = function() {
+	  diagnostic.textContent = "on end";
   if(video_playing) playVid();
   else pauseVid();
     recognition.start();
   if(video_playing) playVid();
   else pauseVid();
-  diagnostic.textContent = 'on end: ';
-}
 };
 
 

@@ -135,14 +135,17 @@ if(video_playing) playVid();
   console.log('Confidence: ' + event.results[0][0].confidence);
   
 	  diagnostic.textContent = "on result";
+
+	    recognition.start();
+  if(video_playing) playVid();
+  else pauseVid();
 	
   //audio.textContent = 'speach started';
 }
 
 recognition.onend = function(event) {
-		  diagnostic.textContent = "on end event";
-  if(video_playing) playVid();
-  else pauseVid();
+  diagnostic.textContent = "on end event";
+
   recognition.start();
   if(video_playing) playVid();
   else pauseVid();
@@ -154,6 +157,8 @@ recodnition.onstart = function(event) {
   else pauseVid();
 }
 
+/*
+
 recognition.onend = function() {
 	  diagnostic.textContent = "on end";
   if(video_playing) playVid();
@@ -162,6 +167,7 @@ recognition.onend = function() {
   if(video_playing) playVid();
   else pauseVid();
 };
+*/
 
 
 recognition.onnomatch = function(event) {

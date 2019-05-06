@@ -18,7 +18,7 @@ recognition.interimResults = true;
 recognition.maxAlternatives = 1;
 
 
-//var diagnostic = document.querySelector('.output');
+var diagnostic = document.querySelector('.output');
 //var audio = document.querySelector('.audio');
 //var bg = document.querySelector('html');
 var scrollDown = false;
@@ -135,6 +135,7 @@ if(video_playing) playVid();
   console.log('Confidence: ' + event.results[0][0].confidence);
   
 
+  diagnostic.textContent = 'On result';
 	
   //audio.textContent = 'speach started';
 }
@@ -145,11 +146,13 @@ recognition.onend = function(event) {
   recognition.start();
   if(video_playing) playVid();
   else pauseVid();
+    diagnostic.textContent = 'On end with event: ' + event.error();
 }
 
 recodnition.onstart = function() {
   if(video_playing) playVid();
   else pauseVid();
+    diagnostic.textContent = 'on start: ';
 }
 
 recognition.onend = function() {
@@ -158,6 +161,8 @@ recognition.onend = function() {
     recognition.start();
   if(video_playing) playVid();
   else pauseVid();
+  diagnostic.textContent = 'on end: ';
+}
 };
 
 
@@ -172,7 +177,7 @@ recognition.onerror = function(event) {
 	recognition.start();
   if(video_playing) playVid();
   else pauseVid();
-  //diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 
 window.onscroll = function(ev) {

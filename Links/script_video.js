@@ -53,6 +53,8 @@ recognition.onresult = function(event) {
   // The [0] returns the SpeechRecognitionAlternative at position 0.
   // We then return the transcript property of the SpeechRecognitionAlternative object
 
+if(video_playing) playVid();
+
   var last = event.results.length - 1;
   var color = event.results[last][0].transcript;
 
@@ -132,37 +134,44 @@ recognition.onresult = function(event) {
   
   console.log('Confidence: ' + event.results[0][0].confidence);
   
-  recognition.start();
-  if(video_playing) playVid();
+
 	
   //audio.textContent = 'speach started';
 }
 
 recognition.onend = function(event) {
+  if(video_playing) playVid();
+  else pauseVid();
   recognition.start();
   if(video_playing) playVid();
+  else pauseVid();
 }
 
 recodnition.onstart = function() {
-	if(video_playing) playVid();
+  if(video_playing) playVid();
+  else pauseVid();
 }
 
 recognition.onend = function() {
-	if(video_playing) playVid();
+  if(video_playing) playVid();
+  else pauseVid();
     recognition.start();
-	if(video_playing) playVid();
+  if(video_playing) playVid();
+  else pauseVid();
 };
 
 
 recognition.onnomatch = function(event) {
 	recognition.start();
-	if(video_playing) playVid();
+  if(video_playing) playVid();
+  else pauseVid();
   diagnostic.textContent = "I didn't recognise that color.";
 }
 
 recognition.onerror = function(event) {
 	recognition.start();
-	if(video_playing) playVid();
+  if(video_playing) playVid();
+  else pauseVid();
   //diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 

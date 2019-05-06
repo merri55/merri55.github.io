@@ -148,8 +148,8 @@ recognition.onend = function(event) {
   else pauseVid();
 }
 
-recodnition.onstart = function() {
-		  diagnostic.textContent = "on start";
+recodnition.onstart = function(event) {
+  diagnostic.textContent = "on start";
   if(video_playing) playVid();
   else pauseVid();
 }

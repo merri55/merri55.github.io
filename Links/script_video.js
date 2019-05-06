@@ -132,10 +132,15 @@ recognition.onresult = function(event) {
   
   console.log('Confidence: ' + event.results[0][0].confidence);
   
+  if(video_playing) playVid();
+	
   //audio.textContent = 'speach started';
 }
 
 
+recodnition.onstart = function() {
+	if(video_playing) playVid();
+}
 
 recognition.onend = function() {
 	if(video_playing) playVid();
@@ -153,7 +158,7 @@ recognition.onnomatch = function(event) {
 recognition.onerror = function(event) {
 	recognition.start();
 	if(video_playing) playVid();
-  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+  //diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 
 window.onscroll = function(ev) {

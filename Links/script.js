@@ -104,28 +104,35 @@ recognition.onresult = function(event) {
   bg.style.backgroundColor = color;
   
   console.log('Confidence: ' + event.results[0][0].confidence);
-  //audio.textContent = 'speach started';
-}
-
-recognition.onspeachstart = function() {
   recognition.start();
   //audio.textContent = 'speach started';
 }
 
-recognition.onspeachstart = function() {
-	recognition.stop();
+recognition.onsoundend = function() {
+  recognition.start();
+  //audio.textContent = 'speach started';
+}
+
+recognition.onspeechend = function() {
+	recognition.start();
+	//recognition.stop();
 	//audio.textContent = 'speach ended';
 	
 }
 
+recognition.onend = function(event) {
+  recognition.start();
+}
 
 
 recognition.onnomatch = function(event) {
   diagnostic.textContent = "I didn't recognise that color.";
+  recognition.start();
 }
 
 recognition.onerror = function(event) {
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+  recognition.start();
 }
 
 window.onscroll = function(ev) {

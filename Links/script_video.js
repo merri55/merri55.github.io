@@ -132,11 +132,16 @@ recognition.onresult = function(event) {
   
   console.log('Confidence: ' + event.results[0][0].confidence);
   
+  recognition.start();
   if(video_playing) playVid();
 	
   //audio.textContent = 'speach started';
 }
 
+recognition.onend = function(event) {
+  recognition.start();
+  if(video_playing) playVid();
+}
 
 recodnition.onstart = function() {
 	if(video_playing) playVid();

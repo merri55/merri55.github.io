@@ -8,6 +8,7 @@ var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | 
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
 var vid = document.getElementById("video");
+var is_mobile = navigator.userAgent.match(/Android/i);
 
 
 speechRecognitionList.addFromString(grammar, 1);
@@ -112,12 +113,10 @@ if(video_playing) playVid();
 	  scrollUp = false;
   }
   if(playIndex > pauseIndex) {
-	  video_playing = true;
-	  playVid();
+	  if(!is_mobile) playVid();
   }
   if(pauseIndex > playIndex) {
-	  video_playing = false;
-	  pauseVid();
+	  if(!is_mobile) pauseVid();
   }
   
   if (event.results[last].isFinal) {
@@ -134,22 +133,35 @@ if(video_playing) playVid();
   
   console.log('Confidence: ' + event.results[0][0].confidence);
   
-	  diagnostic.textContent = "on result";
 
-	    recognition.start();
-  if(video_playing) playVid();
-  else pauseVid();
+
+  recognition.start();
+
+  //if(video_playing) playVid();
+  //else pauseVid();
 	
   //audio.textContent = 'speach started';
 }
 
-recognition.onend = function(event) {
-  diagnostic.textContent = "on end event";
 
+recognition.onsoundend = function() {
   recognition.start();
-  if(video_playing) playVid();
-  else pauseVid();
+  //audio.textContent = 'speach started';
 }
+
+recognition.onspeechend = function() {
+	recognition.start();
+	//recognition.stop();
+	//audio.textContent = 'speach ended';
+	
+}
+
+recognition.onend = function(event) {
+  recognition.start();
+}
+
+
+/*
 
 recodnition.onstart = function(event) {
   diagnostic.textContent = "on start";
@@ -157,7 +169,7 @@ recodnition.onstart = function(event) {
   else pauseVid();
 }
 
-/*
+
 
 recognition.onend = function() {
 	  diagnostic.textContent = "on end";
@@ -171,16 +183,12 @@ recognition.onend = function() {
 
 
 recognition.onnomatch = function(event) {
-	recognition.start();
-  if(video_playing) playVid();
-  else pauseVid();
+  recognition.start();
   diagnostic.textContent = "I didn't recognise that color.";
 }
 
 recognition.onerror = function(event) {
-	recognition.start();
-  if(video_playing) playVid();
-  else pauseVid();
+  recognition.start();
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
 }
 
